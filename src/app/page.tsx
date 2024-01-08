@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <div className="flex justify-between">
       <div>
-        <h1>Welcome to Mwaura's Porfolio</h1>
+        <h1>{`Welcome to Mwaura's Porfolio`}</h1>
         <h2>Fullstack Developer</h2>
         <p>For all your developer and engineering needs.</p>
       </div>
