@@ -1,31 +1,31 @@
 import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <div>Navbar</div>
   );
 };
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <div>Hero</div>
   );
 }
 
-export const About = () => {
+const About = () => {
   return (
     <div>About</div>
   );
 }
 
-export const Projects = () => {
+const Projects = () => {
   return (
     <div>Projects</div>
   );
 }
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <div>Footer</div>
   );
