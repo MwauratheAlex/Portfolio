@@ -1,7 +1,7 @@
 // Example model schema from the Drizzle docs
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
-import { sql } from "drizzle-orm";
+import { sql, relations } from "drizzle-orm";
 import {
   bigint,
   index,
@@ -45,3 +45,33 @@ export const projects = mysqlTable("project", {
     .notNull(),
   updatedAt: timestamp("updatedAt").onUpdateNow(),
 });
+
+export const projectRelations = relations(projects, ({ many }) => ({
+  projectsToTags: many(projectsToTags),
+}));
+
+export const tags = mysqlTable("tag", {
+  id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+  name: varchar("name", { length: 256 }),
+});
+
+export const tagRelations = relations(tags, ({ many }) => ({
+  projectsToTags: many(projectsToTags),
+}));
+
+export const projectsToTags = mysqlTable("projectsToTags", {
+  id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+  projectId: bigint("project_id", { mode: "number" }).notNull(),
+  tagId: bigint("tag_id", { mode: "number" }).notNull(),
+});
+
+export const projectsToTagsRelations = relations(projectsToTags, ({ one }) => ({
+  tag: one(tags, {
+    fields: [projectsToTags.tagId],
+    references: [tags.id],
+  }),
+  project: one(projects, {
+    fields: [projectsToTags.projectId],
+    references: [projects.id],
+  }),
+}));
