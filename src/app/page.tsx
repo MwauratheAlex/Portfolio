@@ -2,13 +2,10 @@ import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
 import Navbar from "./_components/navbar";
 import Hero from "./_components/hero";
+import Projects from "./_components/projects";
 
 
-const Projects = () => {
-  return (
-    <div>Projects</div>
-    );
-  }
+
   
 const About = () => {
   return (
@@ -36,6 +33,7 @@ export default async function Home() {
     </main>
   );
 }
+
 
 async function CrudShowcase() {
   const latestPost = await api.post.getLatest.query();

@@ -30,5 +30,18 @@ export const posts = mysqlTable(
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
-  })
+  }),
 );
+
+export const projects = mysqlTable("project", {
+  id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+  title: varchar("title", { length: 256 }),
+  description: varchar("description", { length: 256 }),
+  image_url: varchar("image_url", { length: 256 }),
+  git_url: varchar("git_url", { length: 256 }),
+  demo_url: varchar("demo_url", { length: 256 }),
+  createdAt: timestamp("created_at")
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: timestamp("updatedAt").onUpdateNow(),
+});
