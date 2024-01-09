@@ -1,53 +1,18 @@
 import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
+import Navbar from "./_components/navbar";
+import Hero from "./_components/hero";
 
-const Navbar = () => {
-  return (
-    <div className="flex justify-between">
-      <div>Logo</div>
-      <div>
-        <ul className="flex gap-4">
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#technologies">Technologies</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul className="flex gap-4">
-          <li><a href="">Git</a></li>
-          <li><a href="">LinkedIn</a></li>
-          <li><a href="">X</a></li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const Hero = () => {
-  return (
-    <div className="flex justify-between">
-      <div>
-        <h1>{`Welcome to Mwaura's Porfolio`}</h1>
-        <h2>Fullstack Developer</h2>
-        <p>For all your developer and engineering needs.</p>
-      </div>
-      <div>
-        Image
-      </div>
-    </div>
-  );
-}
-
-const About = () => {
-  return (
-    <div>About</div>
-  );
-}
 
 const Projects = () => {
   return (
     <div>Projects</div>
+    );
+  }
+  
+const About = () => {
+  return (
+    <div>About</div>
   );
 }
 
@@ -59,11 +24,13 @@ const Footer = () => {
 
 export default async function Home() {
   return (
-    <main className="mx-48">
-      <Navbar />
-      <Hero />
-      <About />
+    <main className="mx-60">
+      <header>
+        <Navbar />
+        <Hero />
+      </header> 
       <Projects />
+      <About />
       <Footer />
       <div>work in progress...</div>
     </main>
