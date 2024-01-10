@@ -3,13 +3,12 @@
 
 import { sql, relations } from "drizzle-orm";
 import {
-  bigint,
   index,
   mysqlTableCreator,
   timestamp,
   varchar,
 } from "drizzle-orm/mysql-core";
-
+import { createId } from "@paralleldrive/cuid2";
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
  * database instance for multiple projects.
@@ -21,7 +20,9 @@ export const mysqlTable = mysqlTableCreator((name) => `portfolio_${name}`);
 export const posts = mysqlTable(
   "post",
   {
-    id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+    id: varchar("id", { length: 128 })
+      .primaryKey()
+      .$defaultFn(() => createId()),
     name: varchar("name", { length: 256 }),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
@@ -34,7 +35,9 @@ export const posts = mysqlTable(
 );
 
 export const projects = mysqlTable("project", {
-  id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+  id: varchar("id", { length: 128 })
+    .primaryKey()
+    .$defaultFn(() => createId()),
   title: varchar("title", { length: 256 }),
   description: varchar("description", { length: 256 }),
   image_url: varchar("image_url", { length: 256 }),
@@ -51,7 +54,9 @@ export const projectRelations = relations(projects, ({ many }) => ({
 }));
 
 export const tags = mysqlTable("tag", {
-  id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+  id: varchar("id", { length: 128 })
+    .primaryKey()
+    .$defaultFn(() => createId()),
   name: varchar("name", { length: 256 }),
 });
 
@@ -60,9 +65,11 @@ export const tagRelations = relations(tags, ({ many }) => ({
 }));
 
 export const projectsToTags = mysqlTable("projectsToTags", {
-  id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
-  projectId: bigint("project_id", { mode: "number" }).notNull(),
-  tagId: bigint("tag_id", { mode: "number" }).notNull(),
+  id: varchar("id", { length: 128 })
+    .primaryKey()
+    .$defaultFn(() => createId()),
+  projectId: varchar("id", { length: 128 }).notNull(),
+  tagId: varchar("id", { length: 128 }).notNull(),
 });
 
 export const projectsToTagsRelations = relations(projectsToTags, ({ one }) => ({
