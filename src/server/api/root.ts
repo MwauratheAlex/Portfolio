@@ -1,6 +1,7 @@
 import { postRouter } from "~/server/api/routers/post";
 import { createTRPCRouter } from "~/server/api/trpc";
 import { TagRouter } from "./routers/tags";
+import { ProjectRouter } from "./routers/project";
 
 /**
  * This is the primary router for your server.
@@ -9,6 +10,7 @@ import { TagRouter } from "./routers/tags";
  */
 export const appRouter = createTRPCRouter({
   post: postRouter,
+  project: ProjectRouter,
   tag: TagRouter,
 });
 

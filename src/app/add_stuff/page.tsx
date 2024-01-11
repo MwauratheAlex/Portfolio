@@ -1,5 +1,5 @@
 import { api } from "~/trpc/server";
-import { CreatePost } from "../_components/create-post";
+import { CreateProject } from "../_components/create-project";
 import { CreateTag } from "../_components/create-tag";
 
 export default async function Home() {
@@ -22,9 +22,8 @@ export default async function Home() {
   async function CrudTags() {
     const latestPost = await api.post.getLatest.query();
     const tags = await api.tag.getAll.query();
-    console.log("TAGS:", tags)
     return (
-      <div className="w-full max-w-xs">
+      <div className="w-[800px]">
         <h2 className="text-2xl font-medium py-2">Manage Tags</h2>
         <h3 className="text-xl font-medium py-2">All Tags</h3>
         {!tags || tags.length === 0 &&  <p>No tags have been added yet.</p>}
@@ -41,11 +40,11 @@ async function CrudProjects() {
   const latestPost = await api.post.getLatest.query();
 
   return (
-    <div className="w-full max-w-xs">
+    <div className="w-[800px]">
       <h2 className="text-2xl font-medium py-2">Manage Projects</h2>
       <h3 className="text-xl font-medium py-2">All Projects</h3>
       <h3 className="text-xl font-medium py-2">Add Projects</h3>
-      <CreatePost />
+      <CreateProject />
     </div>
   );
 }

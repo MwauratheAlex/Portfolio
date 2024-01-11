@@ -1,4 +1,3 @@
-import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
 import Navbar from "./_components/navbar";
 import Hero from "./_components/hero";
