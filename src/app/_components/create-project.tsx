@@ -2,12 +2,34 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "react-hook-form"
+import type { SubmitHandler } from "react-hook-form"
+type Inputs = {
+  title: string
+  description: string
+  imageUrl: string
+  link: string
+  repo: string
+  tags: string[]
+}
 
 import { api } from "~/trpc/react";
-
-export function CreateProject() {
+type tag = {
+  id: string;
+  name: string;
+}
+export function CreateProject(props: tag[]) {
   const router = useRouter();
+
   const [name, setName] = useState("");
+  
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>()
 
   const createPost = api.post.create.useMutation({
     onSuccess: () => {
@@ -16,12 +38,11 @@ export function CreateProject() {
     },
   });
 
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        createPost.mutate({ name });
-      }}
+      onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-2"
     >
       <label htmlFor="title">Title</label>
@@ -72,9 +93,20 @@ export function CreateProject() {
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
         Select a Tag
       </label>
-      <select multiple id="tags" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        <option selected>Choose Tags</option>
-        <option value="US">React</option>
+      <select 
+        multiple 
+        id="tags" 
+        className="bg-gray-50 border border-gray-300 text-gray-900 
+          text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500
+          block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+          dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+          dark:focus:border-blue-500">
+        {Object.values(props).map((tag) => (
+          <option 
+            value={tag.name} 
+            key={tag.id}>
+              {tag.name}
+          </option>))}
       </select>
       <button
         type="submit"
