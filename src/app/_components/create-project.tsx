@@ -49,8 +49,7 @@ export function CreateProject(props: { tags: tag[] }) {
         type="text"
         id="title"
         placeholder="Title"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        {...register("title", { required: true })}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <label htmlFor="description">Description</label>
@@ -59,14 +58,14 @@ export function CreateProject(props: { tags: tag[] }) {
         rows={4} 
         className="w-full rounded-md px-4 py-2 text-black" 
         placeholder="Write your thoughts here..."
+        {...register("description", { required: true })}
       />
       <label htmlFor="imageUrl">ImageUrl</label>
       <input
         type="text"
         id="imageUrl"
         placeholder="ImageUrl"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        {...register("imageUrl", { required: true })}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <label htmlFor="link">Link</label>
@@ -74,8 +73,7 @@ export function CreateProject(props: { tags: tag[] }) {
         type="text"
         id="link"
         placeholder="Link"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        {...register("link", { required: true })}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <label htmlFor="repo">Repo</label>
@@ -83,8 +81,7 @@ export function CreateProject(props: { tags: tag[] }) {
         type="text"
         id="repo"
         placeholder="Repo"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        {...register("repo", { required: true })}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <label 
@@ -95,6 +92,7 @@ export function CreateProject(props: { tags: tag[] }) {
       <select 
         multiple 
         id="tags" 
+        {...register("tags", { required: true })}
         className="bg-gray-50 border border-gray-300 text-gray-900 
           text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500
           block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
