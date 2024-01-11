@@ -102,7 +102,7 @@ export function CreateProject(props: { tags: tag[] }) {
           dark:focus:border-blue-500">
         {props.tags.map((tag) => (
           <option 
-            value={tag.name || ""} 
+            value={tag.name ?? ""} 
             key={tag.id}>
               {tag.name}
           </option>))}
