@@ -33,7 +33,7 @@ export default async function Home() {
           <h2 className="text-2xl font-medium py-2">Manage Projects</h2>
           <h3 className="text-xl font-medium py-2">All Projects</h3>
           <h3 className="text-xl font-medium py-2">Add Projects</h3>
-          <CreateProject {...tags} />
+          <CreateProject tags={tags} />
         </div>
       </div>
     );

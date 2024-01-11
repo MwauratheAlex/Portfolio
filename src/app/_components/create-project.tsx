@@ -15,15 +15,14 @@ type Inputs = {
 
 import { api } from "~/trpc/react";
 type tag = {
-  id: string | null;
-  name: string;
-}[]
-export function CreateProject(props: tag) {
+  id: string;
+  name: string | null;
+}
+export function CreateProject(props: { tags: tag[] }) {
   const router = useRouter();
 
   const [name, setName] = useState("");
   
-
   const {
     register,
     handleSubmit,
@@ -101,7 +100,7 @@ export function CreateProject(props: tag) {
           block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
           dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
           dark:focus:border-blue-500">
-        {Object.values(props).map((tag) => (
+        {props.tags.map((tag) => (
           <option 
             value={tag.name || ""} 
             key={tag.id}>
