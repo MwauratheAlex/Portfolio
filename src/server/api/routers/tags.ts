@@ -1,3 +1,4 @@
+import { eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
@@ -10,6 +11,15 @@ export const TagRouter = createTRPCRouter({
       await ctx.db.insert(tags).values({
         name: input.name,
       });
+    }),
+
+  update: publicProcedure
+    .input(z.object({ id: z.string(), name: z.string().min(1) }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(tags)
+        .set({ name: input.name })
+        .where(eq(tags.id, input.id));
     }),
 
   getAll: publicProcedure.query(({ ctx }) => {
