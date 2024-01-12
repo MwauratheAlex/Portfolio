@@ -22,7 +22,6 @@ export default async function Home() {
   async function Crud() {
     const tags = await api.tag.getAll.query();
     const projects = await api.project.getAll.query();
-    console.log(projects)
     return (
       <div className="w-full" >
         <div className="">
