@@ -27,7 +27,7 @@ export default async function Home() {
           <h3 className="text-xl font-medium py-2">All Tags</h3>
           {!tags || tags.length === 0 &&  <p>No tags have been added yet.</p>}
           {tags && tags.length !== 0 && (<ol>
-            {tags.map((tag) =><TagView tag={tag} />)}
+            {tags.map((tag) =><li key={tag.id}><TagView tag={tag} /></li>)}
           </ol>)}
           <h3 className="text-xl font-medium py-2">Add Tags</h3>
           <CreateTag />

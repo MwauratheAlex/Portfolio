@@ -1,4 +1,3 @@
-import { api } from "~/trpc/server";
 import Navbar from "./_components/navbar";
 import Hero from "./_components/hero";
 import Projects from "./_components/projects";
