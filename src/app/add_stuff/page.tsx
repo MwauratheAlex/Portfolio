@@ -41,7 +41,7 @@ export default async function Home() {
           {projects && projects.length !== 0 && (
             <ol>
               {projects.map((project) => (
-                <li><ProjectView project={project} /></li>
+                <li key={project.id}><ProjectView project={project} /></li>
               ))}
             </ol>
           )}
