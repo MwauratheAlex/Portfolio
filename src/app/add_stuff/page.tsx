@@ -2,6 +2,7 @@ import { api } from "~/trpc/server";
 import { CreateProject } from "../_components/create-project";
 import { CreateTag } from "../_components/create-tag";
 import TagView from "../_components/tagview";
+import ProjectView from "../_components/projectview";
 
 
 
@@ -20,6 +21,8 @@ export default async function Home() {
 
   async function Crud() {
     const tags = await api.tag.getAll.query();
+    const projects = await api.project.getAll.query();
+    console.log(projects)
     return (
       <div className="w-full" >
         <div className="">
@@ -35,6 +38,13 @@ export default async function Home() {
         <div className="mt-8">
           <h2 className="text-2xl font-medium py-2">Manage Projects</h2>
           <h3 className="text-xl font-medium py-2">All Projects</h3>
+          {projects && projects.length !== 0 && (
+            <ol>
+              {projects.map((project) => (
+                <li><ProjectView project={project} /></li>
+              ))}
+            </ol>
+          )}
           <h3 className="text-xl font-medium py-2">Add Projects</h3>
           <CreateProject tags={tags} />
         </div>

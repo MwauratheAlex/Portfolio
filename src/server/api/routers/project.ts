@@ -1,4 +1,5 @@
-import { z } from "zod";
+import { eq } from "drizzle-orm";
+import { string, z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { projects } from "~/server/db/schema";
@@ -22,6 +23,12 @@ export const ProjectRouter = createTRPCRouter({
         git_url: input.gitUrl,
         demo_url: input.demoUrl,
       });
+    }),
+
+  delete: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db.delete(projects).where(eq(projects.id, input.id));
     }),
 
   getAll: publicProcedure.query(({ ctx }) => {
