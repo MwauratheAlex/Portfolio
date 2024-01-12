@@ -1,15 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "react-hook-form"
 import type { SubmitHandler } from "react-hook-form"
 type Inputs = {
   title: string
   description: string
   imageUrl: string
-  link: string
-  repo: string
+  gitUrl: string
+  demoUrl: string
   tags: string[]
 }
 
@@ -20,8 +19,6 @@ type tag = {
 }
 export function CreateProject(props: { tags: tag[] }) {
   const router = useRouter();
-
-  const [name, setName] = useState("");
   
   const {
     register,
@@ -30,14 +27,17 @@ export function CreateProject(props: { tags: tag[] }) {
     formState: { errors },
   } = useForm<Inputs>()
 
-  const createPost = api.post.create.useMutation({
+  const createProject = api.project.create.useMutation({
     onSuccess: () => {
       router.refresh();
-      setName("");
     },
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data)
+    createProject.mutate(data);
+    reset();
+  }
 
   return (
     <form
@@ -73,7 +73,7 @@ export function CreateProject(props: { tags: tag[] }) {
         type="text"
         id="link"
         placeholder="Link"
-        {...register("link", { required: true })}
+        {...register("demoUrl", { required: true })}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <label htmlFor="repo">Repo</label>
@@ -81,7 +81,7 @@ export function CreateProject(props: { tags: tag[] }) {
         type="text"
         id="repo"
         placeholder="Repo"
-        {...register("repo", { required: true })}
+        {...register("gitUrl", { required: true })}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <label 
@@ -108,9 +108,9 @@ export function CreateProject(props: { tags: tag[] }) {
       <button
         type="submit"
         className="rounded-full bg-white/10 px-10 py-3 font-semibold transition hover:bg-white/20"
-        disabled={createPost.isLoading}
+        disabled={createProject.isLoading}
       >
-        {createPost.isLoading ? "Submitting..." : "Submit"}
+        {createProject.isLoading ? "Submitting..." : "Submit"}
       </button>
     </form>
   );

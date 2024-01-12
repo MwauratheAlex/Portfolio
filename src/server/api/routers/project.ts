@@ -9,18 +9,18 @@ export const ProjectRouter = createTRPCRouter({
       z.object({
         title: z.string().min(1),
         description: z.string().min(1),
-        image_url: z.string().min(1),
-        git_url: z.string().min(1),
-        demo_url: z.string().min(1),
+        imageUrl: z.string().min(1),
+        gitUrl: z.string().min(1),
+        demoUrl: z.string().min(1),
       }),
     )
     .mutation(async ({ ctx, input }) => {
       await ctx.db.insert(projects).values({
         title: input.title,
         description: input.description,
-        image_url: input.image_url,
-        git_url: input.git_url,
-        demo_url: input.demo_url,
+        image_url: input.imageUrl,
+        git_url: input.gitUrl,
+        demo_url: input.demoUrl,
       });
     }),
 
