@@ -45,7 +45,12 @@ export const ProjectRouter = createTRPCRouter({
   delete: publicProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
-      await ctx.db.delete(projects).where(eq(projects.id, input.id));
+      const { id } = input;
+
+      await Promise.all([
+        ctx.db.delete(projects).where(eq(projects.id, id)),
+        ctx.db.delete(projectsToTags).where(eq(projectsToTags.projectId, id)),
+      ]);
     }),
 
   getAll: publicProcedure.query(({ ctx }) => {
