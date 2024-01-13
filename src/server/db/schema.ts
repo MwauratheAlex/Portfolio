@@ -35,9 +35,7 @@ export const posts = mysqlTable(
 );
 
 export const projects = mysqlTable("project", {
-  id: varchar("id", { length: 128 })
-    .primaryKey()
-    .$defaultFn(() => createId()),
+  id: varchar("id", { length: 128 }).primaryKey(),
   title: varchar("title", { length: 256 }),
   description: varchar("description", { length: 256 }),
   image_url: varchar("image_url", { length: 256 }),
@@ -68,8 +66,8 @@ export const projectsToTags = mysqlTable("projectsToTags", {
   id: varchar("id", { length: 128 })
     .primaryKey()
     .$defaultFn(() => createId()),
-  projectId: varchar("id", { length: 128 }).notNull(),
-  tagId: varchar("id", { length: 128 }).notNull(),
+  projectId: varchar("projectId", { length: 128 }).notNull(),
+  tagId: varchar("tagId", { length: 128 }).notNull(),
 });
 
 export const projectsToTagsRelations = relations(projectsToTags, ({ one }) => ({

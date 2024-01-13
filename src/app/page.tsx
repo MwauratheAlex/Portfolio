@@ -2,7 +2,6 @@ import Navbar from "./_components/navbar";
 import Hero from "./_components/hero";
 import Projects from "./_components/projects";
 import { api } from "~/trpc/server";
-import ProjectCard from "./_components/project-card";
   
 const About = () => {
   return (
