@@ -1,8 +1,8 @@
 import { api } from "~/trpc/server";
-import { CreateProject } from "../_components/create-project";
 import { CreateTag } from "../_components/create-tag";
 import TagView from "../_components/tagview";
 import ProjectView from "../_components/projectview";
+import CreateProject from "../_components/create-project";
 
 
 
@@ -44,7 +44,6 @@ export default async function Home() {
               ))}
             </ol>
           )}
-          <h3 className="text-xl font-medium py-2">Add Projects</h3>
           <CreateProject tags={tags} />
         </div>
       </div>

@@ -2,8 +2,15 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { api } from "~/trpc/react";
-import { CreateProject } from "./create-project";
-
+import { ProjectForm } from "./project-form";
+type Inputs = {
+  title: string
+  description: string
+  imageUrl: string
+  gitUrl: string
+  demoUrl: string
+  tags: string[]
+}
    
 type Project = {
     id: string;
@@ -19,7 +26,9 @@ type Project = {
 const ProjectView = (props: {project: Project}) => {
   const router = useRouter();
   const [editing, setEditing] = useState(false);
-  
+  const updateProject = api.project.update.useMutation({
+    onSuccess: () => router.refresh(),
+  })
   const deleteProject = api.project.delete.useMutation({
       onSuccess: () => {
           router.refresh();
@@ -30,9 +39,9 @@ const ProjectView = (props: {project: Project}) => {
       deleteProject.mutate({id: props.project.id})
   }
 
-  const handleEdit = () => {
-    // router.push(`/projects/${props.project.id}/edit`)
-    setEditing(!editing);
+  const handleSubmit = (data: Inputs) => {
+    setEditing(!editing)
+    updateProject.mutate({id: props?.project?.id || "", ...data})
   }
 
   return (
@@ -45,7 +54,7 @@ const ProjectView = (props: {project: Project}) => {
       <div className="flex gap-8">
         <button
             className="bg-cyan-500 px-4 py-2 rounded-md"
-            onClick={handleEdit}>
+            onClick={() => setEditing(!editing)}>
                 {false ? "Save" : "Edit"}
         </button>
         <button 
@@ -57,7 +66,7 @@ const ProjectView = (props: {project: Project}) => {
       </div>
       {editing && (
         <div className="col-span-2">
-          <CreateProject project={props.project} />
+          <ProjectForm project={props.project} handleSubmit={handleSubmit} loading={updateProject.isLoading} />
         </div>
       )}
       
