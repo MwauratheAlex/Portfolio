@@ -2,7 +2,12 @@ import { eq } from "drizzle-orm";
 import { string, z } from "zod";
 import { createId } from "@paralleldrive/cuid2";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-import { projects, projectsToTags } from "~/server/db/schema";
+import {
+  projects,
+  projectsToTags,
+  tagRelations,
+  tags,
+} from "~/server/db/schema";
 
 type tag = {
   id: string;
@@ -42,6 +47,33 @@ export const ProjectRouter = createTRPCRouter({
       );
     }),
 
+  update: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        title: z.string().min(1),
+        description: z.string().min(1),
+        imageUrl: z.string().min(1),
+        gitUrl: z.string().min(1),
+        demoUrl: z.string().min(1),
+        tags: z.array(string()),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      await Promise.all([
+        ctx.db
+          .update(projects)
+          .set({
+            title: input.title,
+            description: input.description,
+            image_url: input.imageUrl,
+            git_url: input.gitUrl,
+            demo_url: input.demoUrl,
+          })
+          .where(eq(projects.id, input.id)),
+      ]);
+    }),
+
   delete: publicProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
@@ -53,7 +85,16 @@ export const ProjectRouter = createTRPCRouter({
       ]);
     }),
 
-  getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.db.query.projects.findMany();
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    const projects = await ctx.db.query.projects.findMany({
+      with: {
+        projectsToTags: {
+          with: {
+            tag: true,
+          },
+        },
+      },
+    });
+    return projects;
   }),
 });
