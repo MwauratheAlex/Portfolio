@@ -2,18 +2,14 @@ import Navbar from "./_components/navbar";
 import Hero from "./_components/hero";
 import Projects from "./_components/projects";
 import { api } from "~/trpc/server";
-  
+
 const About = () => {
-  return (
-    <div>About</div>
-  );
-}
+  return <div>About</div>;
+};
 
 const Footer = () => {
-  return (
-    <div>Footer</div>
-  );
-}
+  return <div>Footer</div>;
+};
 
 export default async function Home() {
   const projects = await api.project.getAll.query();
@@ -22,14 +18,11 @@ export default async function Home() {
       <header>
         <Navbar />
         <Hero />
-      </header> 
-      <Projects projects={projects}/>
+      </header>
+      <Projects projects={projects} />
       <About />
       <Footer />
       <div>work in progress...</div>
     </main>
   );
 }
-
-
-
