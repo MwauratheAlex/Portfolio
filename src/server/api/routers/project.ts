@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { string, z } from "zod";
 import { createId } from "@paralleldrive/cuid2";
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
 import { projects, projectsToTags } from "~/server/db/schema";
 
 type tag = {
@@ -10,7 +10,7 @@ type tag = {
 };
 
 export const ProjectRouter = createTRPCRouter({
-  create: publicProcedure
+  create: protectedProcedure
     .input(
       z.object({
         title: z.string().min(1),
@@ -42,7 +42,7 @@ export const ProjectRouter = createTRPCRouter({
       );
     }),
 
-  update: publicProcedure
+  update: protectedProcedure
     .input(
       z.object({
         id: z.string(),
@@ -67,7 +67,7 @@ export const ProjectRouter = createTRPCRouter({
         .where(eq(projects.id, input.id));
     }),
 
-  delete: publicProcedure
+  delete: protectedProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
       const { id } = input;

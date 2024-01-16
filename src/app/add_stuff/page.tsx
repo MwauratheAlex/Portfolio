@@ -3,12 +3,29 @@ import { CreateTag } from "../_components/create-tag";
 import TagView from "../_components/tagview";
 import ProjectView from "../_components/projectview";
 import CreateProject from "../_components/create-project";
+import { getServerAuthSession } from "~/server/auth";
+import Link from "next/link";
 
 export default async function Home() {
+  const session = await getServerAuthSession();
+  if (!session) {
+    return (
+      <Link
+        href={session ? "/api/auth/signout" : "/api/auth/signin"}
+        className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
+      >
+        {session ? "Sign out" : "Sign in"}
+      </Link>
+    );
+  }
+
   return (
     <section className="flex flex-col items-center">
       <div className="w-[50%] bg-stone-900 px-20 shadow-xl shadow-slate-800">
         <h1 className="py-4 text-3xl font-medium">Manage your data</h1>
+        <p className="text-center text-2xl text-white">
+          {session && <span>Logged in as {session.user?.name}</span>}
+        </p>
         <div className="mb-8">
           <Crud />
         </div>
