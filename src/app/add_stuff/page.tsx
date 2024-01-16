@@ -10,22 +10,32 @@ export default async function Home() {
   const session = await getServerAuthSession();
   if (!session) {
     return (
-      <Link
-        href={session ? "/api/auth/signout" : "/api/auth/signin"}
-        className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-      >
-        {session ? "Sign out" : "Sign in"}
-      </Link>
+      <div className="flex h-screen items-center justify-center">
+        <div className="flex w-96 flex-col items-center justify-center">
+          <p className="mb-10 font-semibold">Please sign in to continue</p>
+          <Link
+            href={session ? "/api/auth/signout" : "/api/auth/signin"}
+            className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
+          >
+            {session ? "Sign out" : "Sign in"}
+          </Link>
+        </div>
+      </div>
     );
   }
 
   return (
     <section className="flex flex-col items-center">
       <div className="w-[50%] bg-stone-900 px-20 shadow-xl shadow-slate-800">
-        <h1 className="py-4 text-3xl font-medium">Manage your data</h1>
-        <p className="text-center text-2xl text-white">
-          {session && <span>Logged in as {session.user?.name}</span>}
-        </p>
+        <div className="flex items-center justify-between">
+          <h1 className="py-4 text-3xl font-medium">Manage your data</h1>
+          <Link
+            href={session ? "/api/auth/signout" : "/api/auth/signin"}
+            className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
+          >
+            {session ? "Sign out" : "Sign in"}
+          </Link>
+        </div>
         <div className="mb-8">
           <Crud />
         </div>
