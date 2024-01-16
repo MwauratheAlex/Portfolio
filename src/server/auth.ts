@@ -48,14 +48,10 @@ export const authOptions: NextAuthOptions = {
     }),
 
     //sign in callback
-    async signIn(params) {
-      const isAllowedToSignIn = false;
-
-      if (isAllowedToSignIn) {
-        return true;
-      } else {
-        return false;
-      }
+    async signIn({ user }) {
+      return (
+        user.email === env.ALLOWED_USER_EMAIL && user.id === env.ALLOWED_USER_ID
+      );
     },
   },
   // here I think we can also modify the user type at @auth/core/adapter.ts
