@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "./ui/container";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import {
@@ -12,16 +12,16 @@ import {
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "./ui/drawer";
-import { Separator } from "./ui/separator";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
+
   const routes = [
+    // { href: "/", label: "Home" },
+    { href: "#about", label: "About" },
     { href: "/", label: "Projects" },
-    { href: "/", label: "About" },
     { href: "/", label: "Technologies" },
     { href: "/", label: "Contact" },
   ];
@@ -61,36 +61,42 @@ const Header = () => {
                   <Menu className="h-6 w-6 md:hidden" />
                 </DrawerTrigger>
                 <DrawerContent>
-                  <div className="mt-6 flex h-screen flex-col justify-between">
+                  <div className="mt-6 flex flex-col justify-between">
                     <DrawerHeader>
-                      <div className="flex justify-between py-3">
+                      {/* <div className="flex justify-between py-3">
                         <DrawerTitle>Mbugua</DrawerTitle>
                         <DrawerClose>
                           <X />
                         </DrawerClose>
-                      </div>
+                      </div> */}
                     </DrawerHeader>
-                    <nav className="flex  h-full flex-col justify-center border">
-                      <Separator />
+                    <nav className="flex  h-full flex-col justify-center border py-0">
+                      {/* <Separator /> */}
                       {routes.map((route, idx) => (
                         <div
                           className="grid place-items-center gap-2"
                           key={idx}
                         >
-                          <Button asChild variant="ghost">
+                          <Button
+                            // asChild
+                            variant="ghost"
+                            className="my-0 w-full rounded-none py-8 "
+                          >
                             <Link href={route.href}>{route.label}</Link>
                           </Button>
-                          <Separator />
+                          {/* {idx === routes.length - 1 && <Separator />} */}
                         </div>
                       ))}
                     </nav>
                     <DrawerFooter>
                       <SocialMedia hidden={false} />
-                      <DrawerClose>
-                        <Button variant="destructive" className="mb-2 w-full">
-                          Close
-                        </Button>
-                      </DrawerClose>
+                      <Button
+                        variant="destructive"
+                        className="mb-2 w-full"
+                        asChild
+                      >
+                        <DrawerClose>Close</DrawerClose>
+                      </Button>
                     </DrawerFooter>
                   </div>
                 </DrawerContent>
