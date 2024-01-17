@@ -1,4 +1,4 @@
-import Navbar from "./_components/navbar";
+import Header from "./_components/header";
 import Hero from "./_components/hero";
 import Projects from "./_components/projects";
 import { api } from "~/trpc/server";
@@ -14,11 +14,8 @@ const Footer = () => {
 export default async function Home() {
   const projects = await api.project.getAll.query();
   return (
-    <main className="mx-60">
-      <header>
-        <Navbar />
-        <Hero />
-      </header>
+    <main>
+      <Header />
       <Projects projects={projects} />
       <About />
       <Footer />
