@@ -19,9 +19,9 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        mountains: "url('../images/mountains.png')",
-        planets: "url('../images/planets.png')",
-        stars: "url('../images/stars.png')",
+        mountains: "url('../images/mountains.webp')",
+        planets: "url('../images/planets.webp')",
+        stars: "url('../images/stars.webp')",
       },
       colors: {
         border: "hsl(var(--border))",
