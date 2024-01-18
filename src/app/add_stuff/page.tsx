@@ -1,8 +1,8 @@
 import { api } from "~/trpc/server";
-import { CreateTag } from "../_components/create-tag";
-import TagView from "../_components/tagview";
-import ProjectView from "../_components/projectview";
-import CreateProject from "../_components/create-project";
+import { CreateTag } from "../_components/CreateTag";
+import TagView from "../_components/TagView";
+import ProjectView from "../_components/ProjectView";
+import CreateProject from "../_components/CreateProject";
 import { getServerAuthSession } from "~/server/auth";
 import Link from "next/link";
 

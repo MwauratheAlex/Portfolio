@@ -1,5 +1,5 @@
 "use client";
-import { ProjectForm } from "./project-form";
+import { ProjectForm } from "./ProjectForm";
 import { api } from "~/trpc/react";
 import { useRouter } from "next/navigation";
 import type { ProjectFormInput } from "../types";

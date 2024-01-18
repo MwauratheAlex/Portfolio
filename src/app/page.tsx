@@ -1,6 +1,6 @@
-import Header from "./_components/header";
-import Hero from "./_components/hero";
-import Projects from "./_components/projects";
+import Header from "./_components/Header";
+import Hero from "./_components/Hero";
+import Projects from "./_components/Projects";
 import { api } from "~/trpc/server";
 
 const About = () => {
@@ -16,6 +16,7 @@ export default async function Home() {
   return (
     <main>
       <Header />
+      <Hero />
       <Projects projects={projects} />
       <About />
       <Footer />

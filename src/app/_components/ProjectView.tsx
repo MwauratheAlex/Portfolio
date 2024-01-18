@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { api } from "~/trpc/react";
-import { ProjectForm } from "./project-form";
+import { ProjectForm } from "./ProjectForm";
 import type { ProjectFormInput } from "../types";
 
 type tag = {
