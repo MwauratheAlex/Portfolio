@@ -1,4 +1,5 @@
 import ProjectCard from "./ProjectCard";
+import Container from "./ui/container";
 
 type Project = {
   id: string;
@@ -13,7 +14,7 @@ type Project = {
 
 const Projects = (props: { projects: Project[] }) => {
   return (
-    <section>
+    <Container>
       <h1>Projects</h1>
       {props.projects.length === 0 && <p>Oop! No projects available.</p>}
       {props.projects.length > 0 && (
@@ -24,7 +25,7 @@ const Projects = (props: { projects: Project[] }) => {
           ))}
         </div>
       )}
-    </section>
+    </Container>
   );
 };
 

@@ -15,8 +15,10 @@ export default async function Home() {
   const projects = await api.project.getAll.query();
   return (
     <main>
-      <Header />
-      <Hero />
+      <section className="flex h-screen flex-col justify-center">
+        <Header />
+        <Hero />
+      </section>
       <Projects projects={projects} />
       <About />
       <Footer />
