@@ -7,7 +7,7 @@ const Hero = () => {
       <Container>
         <div className="flex justify-between">
           <div>
-            <p>Mwaurs Mbugua</p>
+            <p>Mwaura Mbugua</p>
             <h1 className="max-w-4xl text-6xl font-semibold">
               Making beautiful stuff for the web
             </h1>
@@ -23,7 +23,7 @@ const Hero = () => {
             size="lg"
             className="rounded-lg border-orange-600 py-6 text-xl"
           >
-            Let's Talk
+            {`Let's Talk`}
           </Button>
           {/* <button
             className="rounded-full border border-slate-400 bg-slate-950
