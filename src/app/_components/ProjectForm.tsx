@@ -25,12 +25,7 @@ export function ProjectForm(props: {
   handleSubmit: (data: ProjectFormInput) => void;
   loading: boolean | undefined;
 }) {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ProjectFormInput>();
+  const { register, handleSubmit, reset } = useForm<ProjectFormInput>();
 
   const onSubmit: SubmitHandler<ProjectFormInput> = (data) => {
     props.handleSubmit(data);
