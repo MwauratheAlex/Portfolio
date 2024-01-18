@@ -26,7 +26,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full overflow-hidden  px-4 py-3 sm:flex sm:justify-between">
+    <header className="w-full overflow-hidden  border-b-4 border-slate-950 px-4 py-3 sm:flex sm:justify-between">
       <Container>
         <div className="relative flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="">
