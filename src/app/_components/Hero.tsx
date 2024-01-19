@@ -1,13 +1,13 @@
 "use client";
 import { DiFirebase, DiReact, DiZend } from "react-icons/di";
-import Parallax from "./Parallax";
+import Parallax from "./animations/Parallax";
 import { Button } from "./ui/button";
 import Container from "./ui/container";
 
 const Hero = () => {
   const stacks = [
-    { name: "UI/UX" },
     { name: "Front-End" },
+    { name: "UI/UX" },
     { name: "Back-End" },
   ];
   return (
@@ -46,11 +46,24 @@ const Hero = () => {
 
 const Stack = (props: { name: string }) => {
   return (
-    <div className="m-2 flex flex-col place-items-center gap-3 lg:m-4">
-      {props.name === "UI/UX" && <DiZend size="2rem" />}
-      {props.name === "Front-End" && <DiReact size="2rem" />}
-      {props.name === "Back-End" && <DiFirebase size="2rem" />}
-      <p className="text-lg font-bold lg:text-2xl">{props.name}</p>
+    <div className="m-3 flex flex-col place-items-center gap-3 lg:m-4">
+      {props.name === "UI/UX" && (
+        <DiZend size="2rem" color="rgb(250, 2, 221)" />
+      )}
+      {props.name === "Front-End" && (
+        <DiReact size="2rem" color="rgb(7, 181, 237)" />
+      )}
+      {props.name === "Back-End" && (
+        <DiFirebase size="2rem" color="rgb(250, 172, 2)" />
+      )}
+      <p
+        className={`text-lg font-bold lg:text-2xl
+        ${props.name === "UI/UX" && "text-purple-400"}
+        ${props.name === "Front-End" && "text-blue-400"}
+        ${props.name === "Back-End" && "text-yellow-200"}`}
+      >
+        {props.name}
+      </p>
     </div>
   );
 };
