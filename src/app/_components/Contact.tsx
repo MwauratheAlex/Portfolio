@@ -6,7 +6,6 @@ import Container from "./ui/container";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,7 +25,9 @@ const Contact = () => {
       emailAddress: "",
     },
   });
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    console.log("Form submitted successfully.");
+  };
   return (
     <section>
       <Container>

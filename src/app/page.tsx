@@ -2,7 +2,6 @@ import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import Projects from "./_components/Projects";
 import { api } from "~/trpc/server";
-import Container from "./_components/ui/container";
 import Contact from "./_components/Contact";
 
 const About = () => {
