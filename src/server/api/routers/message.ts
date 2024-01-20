@@ -1,10 +1,10 @@
-import { messageFormSchema } from "~/lib/utils";
-
+import { messageFormSchema } from "~/app/types";
 import {
   createTRPCRouter,
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
+import { messages } from "~/server/db/schema";
 
 export const messageRouter = createTRPCRouter({
   create: publicProcedure
@@ -14,6 +14,11 @@ export const messageRouter = createTRPCRouter({
       //     name: input.name,
       //   });
       console.log(input);
+      await ctx.db.insert(messages).values({
+        name: input.name,
+        email: input.emailAddress,
+        messages: input.message,
+      });
     }),
 
   getAll: protectedProcedure.query(({ ctx }) => {

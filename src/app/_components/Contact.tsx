@@ -13,8 +13,8 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { messageFormSchema } from "~/lib/utils";
 import { api } from "~/trpc/react";
+import { messageFormSchema } from "../types";
 
 const Contact = () => {
   const form = useForm<z.infer<typeof messageFormSchema>>({
