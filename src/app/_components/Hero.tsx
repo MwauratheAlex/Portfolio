@@ -48,7 +48,7 @@ const Stack = (props: { name: string }) => {
   return (
     <div className="m-3 flex flex-col place-items-center gap-3 lg:m-4">
       {props.name === "UI/UX" && (
-        <DiZend size="2rem" color="rgb(250, 2, 221)" />
+        <DiZend size="2rem" color="rgb(255, 117, 239)" />
       )}
       {props.name === "Front-End" && (
         <DiReact size="2rem" color="rgb(7, 181, 237)" />
