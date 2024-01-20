@@ -1,4 +1,10 @@
+"use client";
+
+import Image from "next/image";
 import { Button } from "./ui/button";
+import image from "../../images/image.jpg";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 type ProjectCardProps = {
   project: {
@@ -13,19 +19,33 @@ type ProjectCardProps = {
   };
 };
 
-const projectCard = (props: ProjectCardProps) => {
+const ProjectCard = (props: ProjectCardProps) => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 600]);
   return (
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">{props.project.title}</h5>
-        <p className="card-text">{props.project.description}</p>
+    <section ref={ref}>
+      <div className="flex gap-6">
+        <div>
+          <Image src={image} width={800} alt="project" />
+        </div>
+        <div className="flex flex-col content-center justify-center align-middle">
+          <motion.div className="card-body" style={{ y }}>
+            <h1 className="card-title">{props.project.title}</h1>
+            <p className="card-text">{props.project.description}</p>
+          </motion.div>
+          <div>
+            <Button variant="link">code</Button>
+            <Button variant="link">Visit</Button>
+          </div>
+        </div>
       </div>
-      <div>
-        <Button>code</Button>
-        <Button>Visit</Button>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default projectCard;
+export default ProjectCard;

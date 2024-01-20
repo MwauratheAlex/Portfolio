@@ -14,18 +14,20 @@ type Project = {
 
 const Projects = (props: { projects: Project[] }) => {
   return (
-    <Container>
-      <h1>Projects</h1>
-      {props.projects.length === 0 && <p>Oop! No projects available.</p>}
-      {props.projects.length > 0 && (
-        <div>
-          {props.projects.length === 0 && <p>no projects available</p>}
-          {props.projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      )}
-    </Container>
+    <section className="py-8 ">
+      <Container>
+        <h1 className="mb-8 text-5xl text-orange-400">Projects</h1>
+        {props.projects.length === 0 && <p>Oop! No projects available.</p>}
+        {props.projects.length > 0 && (
+          <div>
+            {props.projects.length === 0 && <p>no projects available</p>}
+            {props.projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
+      </Container>
+    </section>
   );
 };
 

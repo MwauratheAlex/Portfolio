@@ -3,9 +3,16 @@ import Hero from "./_components/Hero";
 import Projects from "./_components/Projects";
 import { api } from "~/trpc/server";
 import Contact from "./_components/Contact";
+import Container from "./_components/ui/container";
 
 const About = () => {
-  return <div>About</div>;
+  return (
+    <section className="py-8">
+      <Container>
+        <h1 className="text-5xl text-orange-400">About</h1>
+      </Container>
+    </section>
+  );
 };
 
 const Footer = () => {

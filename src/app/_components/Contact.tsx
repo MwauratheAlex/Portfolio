@@ -15,6 +15,8 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { api } from "~/trpc/react";
 import { messageFormSchema } from "../types";
+import { Textarea } from "./ui/textarea";
+import { Separator } from "./ui/separator";
 
 const Contact = () => {
   const form = useForm<z.infer<typeof messageFormSchema>>({
@@ -30,11 +32,14 @@ const Contact = () => {
     createMessage.mutate(data);
   };
   return (
-    <section>
+    <section className="py-8">
       <Container>
-        <h1>Lets Talk</h1>
+        <h1 className="mb-4 text-5xl text-orange-400">Lets Talk</h1>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(handleSubmit)}>
+          <form
+            onSubmit={form.handleSubmit(handleSubmit)}
+            className="flex flex-col gap-8"
+          >
             <FormField
               control={form.control}
               name="name"
@@ -72,13 +77,18 @@ const Contact = () => {
                 <FormItem>
                   <FormLabel>Message</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your message" type="text" {...field} />
+                    <Textarea
+                      placeholder="Type your message here."
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" size="lg">
+              Submit
+            </Button>
           </form>
         </Form>
       </Container>
