@@ -44,7 +44,7 @@ const Hero = () => {
   );
 };
 
-const Stack = (props: { name: string }) => {
+export const Stack = (props: { name: string }) => {
   return (
     <div className="m-3 flex flex-col place-items-center gap-3 lg:m-4">
       {props.name === "UI/UX" && (

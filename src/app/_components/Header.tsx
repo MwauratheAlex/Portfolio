@@ -110,7 +110,7 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
   );
 };
 
-const SocialMedia = (props: { hidden: boolean }) => {
+export const SocialMedia = (props: { hidden: boolean }) => {
   return (
     <div
       className={`${
