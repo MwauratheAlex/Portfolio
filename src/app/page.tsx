@@ -4,12 +4,13 @@ import Projects from "./_components/Projects";
 import { api } from "~/trpc/server";
 import Contact from "./_components/Contact";
 import Container from "./_components/ui/container";
+import SectionHeading from "./_components/ui/sectionHeading";
 
 const About = () => {
   return (
     <section className="py-8" id="about">
       <Container>
-        <h1 className="text-5xl text-orange-400">About</h1>
+        <SectionHeading title="About" />
         <div>
           <h1 className="my-8 text-4xl">My Journey</h1>
           <p>
@@ -32,7 +33,7 @@ const Technologies = () => {
     <section className="py-8" id="technologies">
       <Container>
         <div className="my-8 flex flex-col gap-6">
-          <h1 className="text-5xl text-orange-400">Technologies</h1>
+          <SectionHeading title="Technologies" />
           <p className="">
             Building beatiful things, A robust backend for a modern UI.
           </p>

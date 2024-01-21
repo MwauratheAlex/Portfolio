@@ -16,6 +16,7 @@ import { Button } from "./ui/button";
 import { api } from "~/trpc/react";
 import { messageFormSchema } from "../types";
 import { Textarea } from "./ui/textarea";
+import SectionHeading from "./ui/sectionHeading";
 
 const Contact = () => {
   const form = useForm<z.infer<typeof messageFormSchema>>({
@@ -33,7 +34,7 @@ const Contact = () => {
   return (
     <section className="py-8" id="contact">
       <Container>
-        <h1 className="mb-4 text-5xl text-orange-400">Lets Talk</h1>
+        <SectionHeading title={`Let's talk`} />
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}

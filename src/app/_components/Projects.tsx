@@ -1,5 +1,6 @@
 import ProjectCard from "./ProjectCard";
 import Container from "./ui/container";
+import SectionHeading from "./ui/sectionHeading";
 
 type Project = {
   id: string;
@@ -16,7 +17,7 @@ const Projects = (props: { projects: Project[] }) => {
   return (
     <section className="py-8 " id="projects">
       <Container>
-        <h1 className="mb-8 text-5xl text-orange-400">Projects</h1>
+        <SectionHeading title="Projects" />
         {props.projects.length === 0 && <p>Oop! No projects available.</p>}
         {props.projects.length > 0 && (
           <div>
