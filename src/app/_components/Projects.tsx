@@ -14,7 +14,7 @@ type Project = {
 
 const Projects = (props: { projects: Project[] }) => {
   return (
-    <section className="py-8 ">
+    <div className="py-8 ">
       <Container>
         <h1 className="mb-8 text-5xl text-orange-400">Projects</h1>
         {props.projects.length === 0 && <p>Oop! No projects available.</p>}
@@ -27,7 +27,7 @@ const Projects = (props: { projects: Project[] }) => {
           </div>
         )}
       </Container>
-    </section>
+    </div>
   );
 };
 
