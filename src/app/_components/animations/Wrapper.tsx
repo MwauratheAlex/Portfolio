@@ -10,10 +10,10 @@ const Wrapper = ({ children }: Props) => (
   <>
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 2 }}
+        animate={{ opacity: 1, y: 0.8 }}
         exit={{ opacity: 0, y: 15 }}
-        transition={{ delay: 0.25 }}
+        transition={{ ease: "easeInOut" }}
       >
         {children}
       </motion.div>
