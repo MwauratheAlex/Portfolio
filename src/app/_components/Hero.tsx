@@ -3,6 +3,7 @@ import { DiFirebase, DiReact, DiZend } from "react-icons/di";
 import Parallax from "./animations/Parallax";
 import { Button } from "./ui/button";
 import Container from "./ui/container";
+import Wrapper from "./animations/Wrapper";
 
 const Hero = () => {
   const stacks = [
@@ -14,30 +15,32 @@ const Hero = () => {
     <Parallax>
       <div className="mt-24 grow align-middle">
         <Container>
-          <div
-            className="
+          <Wrapper>
+            <div
+              className="
             mx-auto
             grid w-max 
             max-w-full place-items-center justify-center
             gap-6 rounded-3xl bg-black bg-opacity-90 px-6 py-8 text-center lg:px-10"
-          >
-            <h1 className="text-2xl text-slate-400  lg:text-5xl">
-              Mwaura Mbugua
-            </h1>
-            <h2 className="text-3xl font-medium lg:text-6xl">
-              Making beautiful stuff <br /> for the web
-            </h2>
-            <div className="flex">
-              {stacks.map((stack, idx) => (
-                <Stack key={idx} name={stack.name} />
-              ))}
+            >
+              <h1 className="text-2xl text-slate-400  lg:text-5xl">
+                Mwaura Mbugua
+              </h1>
+              <h2 className="text-3xl font-medium lg:text-6xl">
+                Making beautiful stuff <br /> for the web
+              </h2>
+              <div className="flex">
+                {stacks.map((stack, idx) => (
+                  <Stack key={idx} name={stack.name} />
+                ))}
+              </div>
+              <Button
+                variant="outline"
+                size="lg"
+                className="mt-2 rounded-md border-red-500 py-6 text-xl font-medium"
+              >{`Let's talk`}</Button>
             </div>
-            <Button
-              variant="outline"
-              size="lg"
-              className="mt-2 rounded-md border-red-500 py-6 text-xl font-medium"
-            >{`Let's talk`}</Button>
-          </div>
+          </Wrapper>
         </Container>
       </div>
     </Parallax>
