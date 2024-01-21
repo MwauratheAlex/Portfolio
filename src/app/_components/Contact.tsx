@@ -16,7 +16,6 @@ import { Button } from "./ui/button";
 import { api } from "~/trpc/react";
 import { messageFormSchema } from "../types";
 import { Textarea } from "./ui/textarea";
-import { Separator } from "./ui/separator";
 
 const Contact = () => {
   const form = useForm<z.infer<typeof messageFormSchema>>({
@@ -32,7 +31,7 @@ const Contact = () => {
     createMessage.mutate(data);
   };
   return (
-    <section className="py-8">
+    <section className="py-8" id="contact">
       <Container>
         <h1 className="mb-4 text-5xl text-orange-400">Lets Talk</h1>
         <Form {...form}>

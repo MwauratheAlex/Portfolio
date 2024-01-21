@@ -19,10 +19,10 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
 
   const routes = [
+    { href: "#projects", label: "Projects" },
     { href: "#about", label: "About" },
-    { href: "/", label: "Projects" },
-    { href: "/", label: "Technologies" },
-    { href: "/", label: "Contact" },
+    { href: "#technologies", label: "Technologies" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
