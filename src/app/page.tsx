@@ -62,6 +62,9 @@ const About = () => {
             Passion for Building Tech. From writing software to run robots, to
             making beautiful and modern web apps, I have seen it all.
           </p>
+          <div className="px-8 py-8">
+            <CarouselComponent items={about} />
+          </div>
         </div>
       </Container>
     </section>
@@ -102,9 +105,9 @@ const Technologies = () => {
           </p>
         </div>
 
-        <div className="flex justify-center gap-6 border">
+        <div className="flex flex-col justify-center gap-6 border lg:flex-row">
           {stacks.map((stack) => (
-            <div className="w-1/3 border" key={stack.name}>
+            <div className="w-full border lg:w-1/3" key={stack.name}>
               <Stack name={stack.name}>
                 <p className="">{stack.description.split(".")[0]}</p>
                 <p className="">{stack.description.split(".")[1]}</p>
@@ -119,12 +122,14 @@ const Technologies = () => {
 
 const Footer = () => {
   return (
-    <section className="bg-black py-8">
+    <section className="mt-4 bg-black py-8">
       <Container>
-        <div className="flex justify-between ">
-          <p className="my-auto">Made with love by: mwaura mbugua</p>
-          <p className="my-auto">&copy; {new Date().getFullYear()}</p>
-          <SocialMedia className="flex gap-8" />
+        <div className="flex justify-between">
+          <p className="my-auto text-sm font-thin lg:text-base">mbugua</p>
+          <p className="my-auto text-sm font-thin lg:text-base">
+            &copy; {new Date().getFullYear()}
+          </p>
+          <SocialMedia className="flex lg:gap-8" />
         </div>
       </Container>
     </section>

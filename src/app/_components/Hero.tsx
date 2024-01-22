@@ -36,7 +36,7 @@ const Hero = () => {
                 backgroundClip: "text",
               }}
             >
-              Making beautiful stuff <br /> for the web
+              Building beautiful stuff <br /> for the web
             </h2>
             <Wrapper>
               <div className="flex">

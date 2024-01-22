@@ -40,18 +40,18 @@ const ProjectCard = (props: ProjectCardProps) => {
             <div className="flex gap-2 md:gap-5">
               <Button
                 variant="outline"
-                className=" h-10 rounded-full bg-black"
+                className=" h-8 rounded-full bg-black py-4 lg:h-10"
                 size="lg"
               >
-                <Github />
+                <Github className="h-5 w-5" />
                 <span className="ml-2 font-bold">Git</span>
               </Button>
               <Button
                 variant="outline"
-                className=" h-10 rounded-full bg-red-950"
+                className=" h-8 rounded-full bg-red-950 py-4 lg:h-10"
                 size="lg"
               >
-                <Link />
+                <Link className="h-5 w-5" />
                 <span className="ml-2 font-bold">Visit</span>
               </Button>
             </div>

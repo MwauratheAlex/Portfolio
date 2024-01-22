@@ -34,31 +34,28 @@ const Contact = () => {
     createMessage.mutate(data);
   };
   return (
-    <section className="py-8" id="contact">
+    <section className="w-screen  lg:py-8" id="contact">
       <Container>
-        <div className="grid grid-cols-2 gap-4 rounded-lg border px-8 py-16">
-          <div className="flex flex-col justify-between ">
+        <div className=" rounded-lg border px-8 py-6 lg:grid lg:grid-cols-2 lg:gap-4 lg:py-16">
+          <div className="flex flex-col justify-start">
             <SectionHeading title={`Let's talk`} />
-            <p className="text-lg">
-              I am always open to new opportunities and challenges. If you want
-              to talk about a project, collaboration, or just want to say hi,
-              feel free to contact me.
-            </p>
-            <div className="flex gap-4">
-              <AtSign size={24} />
-              <p>mwaurambugua12@mail.com</p>
+            <div className="mt-6 flex h-full flex-col  items-center gap-3  lg:mt-8 lg:gap-8">
+              <div className="flex w-min gap-3 lg:gap-4">
+                <AtSign className="h-5 w-5" />
+                <p>mwaurambugua12@mail.com</p>
+              </div>
+              <div className="flex gap-3 lg:gap-4">
+                <Phone className="h-5 w-5" />
+                <p>+254 713 958 070</p>
+              </div>
+              <SocialMedia className="flex w-max gap-2 lg:gap-8 lg:border" />
             </div>
-            <div className="flex gap-4">
-              <Phone size={24} />
-              <p>+254 713 958 070</p>
-            </div>
-            <SocialMedia className="flex w-max gap-8 border" />
           </div>
-          <div className="">
+          <div className=" mt-3">
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(handleSubmit)}
-                className="flex flex-col gap-8"
+                className="flex flex-col gap-4 lg:gap-8"
               >
                 <FormField
                   control={form.control}
