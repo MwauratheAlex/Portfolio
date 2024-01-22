@@ -9,7 +9,9 @@ import {
 } from "./ui/carousel";
 import { Card, CardContent } from "./ui/card";
 
-export function CarouselComponent() {
+export function CarouselComponent(props: {
+  items: { heading: string; text: string }[];
+}) {
   return (
     <Carousel
       opts={{
@@ -18,12 +20,13 @@ export function CarouselComponent() {
       className="w-full "
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+        {props.items.map((item, idx) => (
+          <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
+                <CardContent className="flex aspect-square flex-col items-center justify-center p-6">
+                  <span className="text-3xl font-semibold">{item.heading}</span>
+                  <p className="text-xl font-medium">{item.text}</p>
                 </CardContent>
               </Card>
             </div>

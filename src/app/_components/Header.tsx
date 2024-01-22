@@ -49,7 +49,7 @@ const Header = () => {
                 size="icon"
                 aria-label="Toggle Theme"
                 className="md:ml-12"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => setTheme(theme === "dark" ? "dark" : "dark")}
               >
                 <Sun
                   color="#d17a00"

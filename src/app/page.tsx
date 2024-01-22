@@ -8,6 +8,40 @@ import SectionHeading from "./_components/ui/sectionHeading";
 import { CarouselComponent } from "./_components/Carousel";
 
 const About = () => {
+  const about = [
+    {
+      heading: "2016",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2017",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2018",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2019",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2020",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2021",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2022",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+    {
+      heading: "2023",
+      text: `Graduated from the Alliance High School, Kenya`,
+    },
+  ];
   return (
     <section className="py-8" id="about">
       <Container>
@@ -19,7 +53,7 @@ const About = () => {
             making beautiful and modern web apps, I have seen it all.
           </p>
           <div className="px-8 py-8">
-            <CarouselComponent />
+            <CarouselComponent items={about} />
           </div>
         </div>
         <div className="mt-4 rounded-lg border text-center">
