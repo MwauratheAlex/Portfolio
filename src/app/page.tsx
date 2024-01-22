@@ -1,4 +1,4 @@
-import Header from "./_components/Header";
+import Header, { SocialMedia } from "./_components/Header";
 import Hero, { Stack } from "./_components/Hero";
 import Projects from "./_components/Projects";
 import { api } from "~/trpc/server";
@@ -53,9 +53,10 @@ const Footer = () => {
   return (
     <section className="bg-black py-8">
       <Container>
-        <div className="flex justify-between">
-          <p>Made with love by: mwaura mbugua</p>
-          <p>{2024}</p>
+        <div className="flex justify-between ">
+          <p className="my-auto">Made with love by: mwaura mbugua</p>
+          <p className="my-auto">&copy; {new Date().getFullYear()}</p>
+          <SocialMedia className="flex gap-8" />
         </div>
       </Container>
     </section>
