@@ -5,14 +5,25 @@ import { api } from "~/trpc/server";
 import Contact from "./_components/Contact";
 import Container from "./_components/ui/container";
 import SectionHeading from "./_components/ui/sectionHeading";
+import { CarouselComponent } from "./_components/Carousel";
 
 const About = () => {
   return (
     <section className="py-8" id="about">
       <Container>
         <SectionHeading title="About" />
-        <div>
-          <h1 className="my-8 text-4xl">My Journey</h1>
+        <div className="mt-4 rounded-lg border text-center">
+          <h1 className="my-4 text-2xl font-semibold">My Journey</h1>
+          <p>
+            Passion for Building Tech. From writing software to run robots, to
+            making beautiful and modern web apps, I have seen it all.
+          </p>
+          <div className="px-8 py-8">
+            <CarouselComponent />
+          </div>
+        </div>
+        <div className="mt-4 rounded-lg border text-center">
+          <h1 className="my-8 text-2xl font-semibold">Accomplishments</h1>
           <p>
             Passion for Building Tech. From writing software to run robots, to
             making beautiful and modern web apps, I have seen it all.
@@ -25,23 +36,46 @@ const About = () => {
 
 const Technologies = () => {
   const stacks = [
-    { name: "Front-End" },
-    { name: "UI/UX" },
-    { name: "Back-End" },
+    {
+      name: "Front-End",
+      description: `
+        Buiding your imagination.
+        Experience with React and NextJS.
+      `,
+    },
+    {
+      name: "UI/UX",
+      description: `
+        Bringing your ideas to life.
+        Experience with Figma.
+      `,
+    },
+    {
+      name: "Back-End",
+      description: `
+        Robust bussiness logic driver for a modern UI.
+        Experience with Node and SQL.
+      `,
+    },
   ];
   return (
     <section className="py-8" id="technologies">
       <Container>
-        <div className="my-8 flex flex-col gap-6">
+        <div className="my-8 flex flex-col gap-6 text-center">
           <SectionHeading title="Technologies" />
           <p className="">
             Building beatiful things, A robust backend for a modern UI.
           </p>
         </div>
 
-        <div className="flex gap-6">
+        <div className="flex justify-center gap-6 border">
           {stacks.map((stack) => (
-            <Stack key={stack.name} name={stack.name} />
+            <div className="w-1/3 border" key={stack.name}>
+              <Stack name={stack.name}>
+                <p className="">{stack.description.split(".")[0]}</p>
+                <p className="">{stack.description.split(".")[1]}</p>
+              </Stack>
+            </div>
           ))}
         </div>
       </Container>

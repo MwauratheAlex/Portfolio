@@ -4,6 +4,7 @@ import Parallax from "./animations/Parallax";
 import { Button } from "./ui/button";
 import Container from "./ui/container";
 import Wrapper from "./animations/Wrapper";
+import { ReactNode } from "react";
 
 const Hero = () => {
   const stacks = [
@@ -47,7 +48,7 @@ const Hero = () => {
   );
 };
 
-export const Stack = (props: { name: string }) => {
+export const Stack = (props: { name: string; children?: React.ReactNode }) => {
   return (
     <div className="m-3 flex flex-col place-items-center gap-3 lg:m-4">
       {props.name === "UI/UX" && (
@@ -67,6 +68,7 @@ export const Stack = (props: { name: string }) => {
       >
         {props.name}
       </p>
+      {props.children}
     </div>
   );
 };
