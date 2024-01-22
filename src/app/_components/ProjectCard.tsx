@@ -20,11 +20,17 @@ type ProjectCardProps = {
 
 const ProjectCard = (props: ProjectCardProps) => {
   return (
-    <section className="my-10 overflow-hidden rounded-lg border">
+    <section className="my-10 flex overflow-hidden rounded-lg border">
       <Wrapper>
-        <div className="flex flex-col lg:flex-row">
-          <div className="overflow-hidden rounded-md  lg:my-4 lg:ml-4 lg:h-96">
-            <Image src={image} objectFit="contain" alt="project" />
+        <div className="flex flex-col justify-center lg:flex-row">
+          <div className="overflow-hidden rounded-md  lg:my-4 lg:ml-4  ">
+            <Image
+              src={props.project.image_url ?? image}
+              width={500}
+              height={500}
+              objectFit="contain"
+              alt="project"
+            />
           </div>
           <div className="my-auto flex h-fit flex-col gap-4 bg-slate-900 px-4  py-8 lg:w-2/4 lg:px-8">
             <div className="flex flex-col gap-3">

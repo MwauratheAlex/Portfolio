@@ -42,7 +42,7 @@ const Header = () => {
             ))}
           </nav>
           <div className="flex items-center">
-            <SocialMedia hidden={true} />
+            <SocialMedia className="hidden" />
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
@@ -99,7 +99,7 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
             ))}
           </nav>
           <DrawerFooter>
-            <SocialMedia hidden={false} />
+            <SocialMedia className="mb-3 mt-1 flex justify-center gap-2 border" />
             <Button variant="destructive" className="mb-2 w-full" asChild>
               <DrawerClose>Close</DrawerClose>
             </Button>
@@ -110,13 +110,9 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
   );
 };
 
-export const SocialMedia = (props: { hidden: boolean }) => {
+export const SocialMedia = (props: { className?: string }) => {
   return (
-    <div
-      className={`${
-        props.hidden ? "hidden" : "mb-3 mt-1 flex justify-center gap-2 border"
-      } md:flex`}
-    >
+    <div className={`${props.className ?? ""} md:flex`}>
       <Button asChild variant="ghost" size="icon" aria-label="Github">
         <Link href="">
           <FaGithub />

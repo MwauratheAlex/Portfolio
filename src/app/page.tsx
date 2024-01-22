@@ -50,7 +50,16 @@ const Technologies = () => {
 };
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <section className="bg-black py-8">
+      <Container>
+        <div className="flex justify-between">
+          <p>Made with love by: mwaura mbugua</p>
+          <p>{2024}</p>
+        </div>
+      </Container>
+    </section>
+  );
 };
 
 export default async function Home() {
