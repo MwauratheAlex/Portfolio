@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import type { ProjectFormInput } from "../types";
+import ImageUpload from "./ImageUpload";
 
 type tag = {
   id: string;
@@ -25,9 +26,11 @@ export function ProjectForm(props: {
   handleSubmit: (data: ProjectFormInput) => void;
   loading: boolean | undefined;
 }) {
-  const { register, handleSubmit, reset } = useForm<ProjectFormInput>();
-
+  const { register, handleSubmit, reset, setValue, watch } =
+    useForm<ProjectFormInput>();
+  const imageUrl = watch("imageUrl");
   const onSubmit: SubmitHandler<ProjectFormInput> = (data) => {
+    console.log(data);
     props.handleSubmit(data);
     reset();
   };
@@ -52,15 +55,21 @@ export function ProjectForm(props: {
         defaultValue={props.project?.description ?? ""}
         {...register("description", { required: true })}
       />
-      <label htmlFor="imageUrl">ImageUrl</label>
+      <label htmlFor="imageUrl">Project Cover Image</label>
       <input
         type="text"
         id="imageUrl"
         placeholder="ImageUrl"
-        defaultValue={props.project?.image_url ?? ""}
-        {...register("imageUrl", { required: true })}
+        defaultValue={imageUrl}
+        disabled={true}
         className="w-full rounded-full px-4 py-2 text-black"
       />
+
+      <ImageUpload
+        onChange={(value) => setValue("imageUrl", value)}
+        value={imageUrl ?? ""}
+      />
+
       <label htmlFor="link">Link</label>
       <input
         type="text"
