@@ -55,7 +55,7 @@ const ProjectView = (props: { project: Project; tags: tag[] }) => {
           className="rounded-md bg-cyan-500 px-4 py-2"
           onClick={() => setEditing(!editing)}
         >
-          {false ? "Save" : "Edit"}
+          {editing ? "Close" : "Edit"}
         </button>
         <button
           className="rounded-md bg-red-500 px-4 py-2"

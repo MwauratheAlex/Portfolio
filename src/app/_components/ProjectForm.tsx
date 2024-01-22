@@ -30,7 +30,6 @@ export function ProjectForm(props: {
     useForm<ProjectFormInput>();
   const imageUrl = watch("imageUrl");
   const onSubmit: SubmitHandler<ProjectFormInput> = (data) => {
-    console.log(data);
     props.handleSubmit(data);
     reset();
   };
@@ -67,7 +66,7 @@ export function ProjectForm(props: {
 
       <ImageUpload
         onChange={(value) => setValue("imageUrl", value)}
-        value={imageUrl ?? ""}
+        value={imageUrl || (props.project?.image_url ?? "")}
       />
 
       <label htmlFor="link">Link</label>

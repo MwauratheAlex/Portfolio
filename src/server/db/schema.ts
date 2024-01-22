@@ -41,7 +41,7 @@ export const posts = mysqlTable(
 export const projects = mysqlTable("project", {
   id: varchar("id", { length: 128 }).primaryKey(),
   title: varchar("title", { length: 256 }),
-  description: varchar("description", { length: 256 }),
+  description: varchar("description", { length: 500 }),
   image_url: varchar("image_url", { length: 256 }),
   git_url: varchar("git_url", { length: 256 }),
   demo_url: varchar("demo_url", { length: 256 }),
