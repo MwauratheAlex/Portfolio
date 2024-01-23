@@ -15,31 +15,43 @@ const About = () => {
     },
     {
       heading: "2017",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `Joined JKUAT, B.Sc. Electrical and Electronics Engineering`,
     },
     {
       heading: "2018",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `Started my developer journey`,
     },
     {
       heading: "2019",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `
+      Interned at Makomboki Tea Factory as an Electrical Engineer`,
     },
     {
       heading: "2020",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `Worked as a freelancer developer`,
     },
     {
       heading: "2021",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `Interned at Kenya Power and Lighting Company (KPLC) as an Electric Engineer`,
     },
     {
       heading: "2022",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `Interned at Psalmchmart Ltd, Juja, Kenya as an Electronics and Automation Engineer`,
     },
     {
       heading: "2023",
-      text: `Graduated from the Alliance High School, Kenya`,
+      text: `Graduated from JKUAT, B.Sc. Electrical and Electronics Engineering.
+      Programmed Robots at JKUAT Robotics Dojo`,
+    },
+    {
+      heading: "2024",
+      text: `Work in Progress...`,
+    },
+  ];
+  const accomplishments = [
+    {
+      heading: "2023",
+      text: `B.Sc. Electrical and Electronics Engineering`,
     },
   ];
   return (
@@ -57,13 +69,10 @@ const About = () => {
           </div>
         </div>
         <div className="mt-4 rounded-lg border text-center">
-          <h1 className="my-8 text-2xl font-semibold">Accomplishments</h1>
-          <p>
-            Passion for Building Tech. From writing software to run robots, to
-            making beautiful and modern web apps, I have seen it all.
-          </p>
+          <h1 className=" text-2xl font-semibold">Accomplishments</h1>
+
           <div className="px-8 py-8">
-            <CarouselComponent items={about} />
+            <CarouselComponent items={accomplishments} />
           </div>
         </div>
       </Container>

@@ -50,7 +50,7 @@ const Header = () => {
                 variant="ghost"
                 size="icon"
                 aria-label="Toggle Theme"
-                className="md:ml-12"
+                className="hidden md:ml-12"
                 onClick={() => setTheme(theme === "dark" ? "dark" : "dark")}
               >
                 <Sun
