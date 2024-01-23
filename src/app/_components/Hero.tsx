@@ -16,10 +16,7 @@ const Hero = () => {
     <Parallax>
       <div className="mt-24 grow align-middle">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+          <div
             className={`
             mx-auto
             grid w-max 
@@ -54,7 +51,7 @@ const Hero = () => {
               size="lg"
               className="mt-2 rounded-md border-red-500 py-6 text-xl font-medium"
             >{`Let's talk`}</Button>
-          </motion.div>
+          </div>
         </Container>
       </div>
     </Parallax>
