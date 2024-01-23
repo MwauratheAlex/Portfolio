@@ -18,9 +18,9 @@ const Hero = () => {
       <div className="grow align-middle">
         <Container>
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, y: 200 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.25 }}
             className={`
             mx-auto
             w-max max-w-full 

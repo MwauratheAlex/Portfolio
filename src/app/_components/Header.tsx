@@ -6,14 +6,16 @@ import { FaXTwitter } from "react-icons/fa6";
 import { Sun, Moon, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
+
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTrigger,
-} from "./ui/drawer";
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTrigger,
+} from "./ui/sheet";
+import { Separator } from "./ui/separator";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -69,21 +71,24 @@ const Header = () => {
 
 const SideBar = (props: { routes: { href: string; label: string }[] }) => {
   return (
-    <Drawer>
-      <DrawerTrigger>
+    <Sheet>
+      <SheetTrigger asChild>
         <Menu className="h-6 w-6 md:hidden" />
-      </DrawerTrigger>
-      <DrawerContent>
+      </SheetTrigger>
+      <SheetContent
+        side="bottom"
+        className=" rounded-t-xl border-t-0 opacity-80"
+      >
         <div className="mt-6 flex flex-col justify-between">
-          <DrawerHeader>
+          <SheetHeader>
             {/* <div className="flex justify-between py-3">
-                        <DrawerTitle>Mbugua</DrawerTitle>
-                        <DrawerClose>
+                        <SheetTitle>Mbugua</SheetTitle>
+                        <SheetClose>
                           <X />
-                        </DrawerClose>
+                        </SheetClose>
                       </div> */}
-          </DrawerHeader>
-          <nav className="flex  h-full flex-col justify-center border py-0">
+          </SheetHeader>
+          <nav className="flex  h-full flex-col justify-center py-0">
             {/* <Separator /> */}
             {props.routes.map((route, idx) => (
               <div className="grid place-items-center gap-2" key={idx}>
@@ -94,19 +99,19 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
                 >
                   <Link href={route.href}>{route.label}</Link>
                 </Button>
-                {/* {idx === routes.length - 1 && <Separator />} */}
+                <Separator />
               </div>
             ))}
+            <SocialMedia className="my-6  flex justify-center gap-2" />
           </nav>
-          <DrawerFooter>
-            <SocialMedia className="mb-3 mt-1 flex justify-center gap-2 border" />
+          <SheetFooter>
             <Button variant="destructive" className="mb-2 w-full" asChild>
-              <DrawerClose>Close</DrawerClose>
+              <SheetClose>Close</SheetClose>
             </Button>
-          </DrawerFooter>
+          </SheetFooter>
         </div>
-      </DrawerContent>
-    </Drawer>
+      </SheetContent>
+    </Sheet>
   );
 };
 
