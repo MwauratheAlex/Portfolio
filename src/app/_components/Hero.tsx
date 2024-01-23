@@ -3,7 +3,6 @@ import { DiFirebase, DiReact, DiZend } from "react-icons/di";
 import Parallax from "./animations/Parallax";
 import { Button } from "./ui/button";
 import Container from "./ui/container";
-import Wrapper from "./animations/Wrapper";
 
 const Hero = () => {
   const stacks = [
@@ -38,13 +37,11 @@ const Hero = () => {
             >
               Building beautiful stuff <br /> for the web
             </h2>
-            <Wrapper>
-              <div className="flex">
-                {stacks.map((stack, idx) => (
-                  <Stack key={idx} name={stack.name} />
-                ))}
-              </div>
-            </Wrapper>
+            <div className="flex">
+              {stacks.map((stack, idx) => (
+                <Stack key={idx} name={stack.name} />
+              ))}
+            </div>
             <Button
               variant="outline"
               size="lg"

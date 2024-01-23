@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "~/trpc/react";
