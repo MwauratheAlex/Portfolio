@@ -16,19 +16,17 @@ const Hero = () => {
     <Parallax>
       <div className="mt-24 grow align-middle">
         <Container>
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             className={`
             mx-auto
             grid w-max 
             max-w-full place-items-center justify-center
             gap-3 rounded-3xl bg-black bg-opacity-90 px-6 py-8 text-center md:gap-6 lg:px-10`}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-3 lg:gap-6"
-            >
+            <div className="flex flex-col gap-3 lg:gap-6">
               <h1 className="text-2xl text-slate-400  lg:text-5xl">
                 Mwaura Mbugua
               </h1>
@@ -44,7 +42,7 @@ const Hero = () => {
               >
                 Building beautiful stuff <br /> for the web
               </h2>
-            </motion.div>
+            </div>
 
             <div className="flex">
               {stacks.map((stack, idx) => (
@@ -56,7 +54,7 @@ const Hero = () => {
               size="lg"
               className="mt-2 rounded-md border-red-500 py-6 text-xl font-medium"
             >{`Let's talk`}</Button>
-          </div>
+          </motion.div>
         </Container>
       </div>
     </Parallax>
