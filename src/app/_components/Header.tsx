@@ -91,11 +91,9 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
                       </div> */}
           </SheetHeader>
           <nav className="flex  h-full flex-col justify-center py-0">
-            {/* <Separator /> */}
             {props.routes.map((route, idx) => (
               <div className="grid place-items-center gap-2" key={idx}>
                 <Button
-                  // asChild
                   variant="ghost"
                   className="my-0 w-full rounded-none py-8 "
                   onClick={() => {
