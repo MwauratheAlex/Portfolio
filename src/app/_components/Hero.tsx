@@ -3,6 +3,7 @@ import { DiFirebase, DiReact, DiZend } from "react-icons/di";
 import Parallax from "./animations/Parallax";
 import { Button } from "./ui/button";
 import Container from "./ui/container";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const stacks = [
@@ -22,21 +23,29 @@ const Hero = () => {
             max-w-full place-items-center justify-center
             gap-3 rounded-3xl bg-black bg-opacity-90 px-6 py-8 text-center md:gap-6 lg:px-10`}
           >
-            <h1 className="text-2xl text-slate-400  lg:text-5xl">
-              Mwaura Mbugua
-            </h1>
-            <h2
-              className="text-3xl font-bold lg:text-6xl"
-              style={{
-                background:
-                  "linear-gradient(174deg, rgba(155,188,195,1) 22%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%)",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                backgroundClip: "text",
-              }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col gap-3 lg:gap-6"
             >
-              Building beautiful stuff <br /> for the web
-            </h2>
+              <h1 className="text-2xl text-slate-400  lg:text-5xl">
+                Mwaura Mbugua
+              </h1>
+              <h2
+                className="text-3xl font-bold lg:text-6xl"
+                style={{
+                  background:
+                    "linear-gradient(174deg, rgba(155,188,195,1) 22%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Building beautiful stuff <br /> for the web
+              </h2>
+            </motion.div>
+
             <div className="flex">
               {stacks.map((stack, idx) => (
                 <Stack key={idx} name={stack.name} />
