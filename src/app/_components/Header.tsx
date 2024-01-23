@@ -16,6 +16,7 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Separator } from "./ui/separator";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -70,6 +71,7 @@ const Header = () => {
 };
 
 const SideBar = (props: { routes: { href: string; label: string }[] }) => {
+  const router = useRouter();
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -96,8 +98,11 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
                   // asChild
                   variant="ghost"
                   className="my-0 w-full rounded-none py-8 "
+                  onClick={() => {
+                    router.push(route.href);
+                  }}
                 >
-                  <Link href={route.href}>{route.label}</Link>
+                  {route.label}
                 </Button>
                 <Separator />
               </div>
