@@ -14,29 +14,29 @@ const Parallax: React.FC<ParallaxProps> = ({ children }) => {
   });
   //   const yChildren = useTransform(scrollYProgress, [0, 1], ["0%", "130%"]);
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
-  const mountainOpacity = useTransform(scrollYProgress, [0, 1], ["80%", "0%"]);
+  // const mountainOpacity = useTransform(scrollYProgress, [0, 1], ["80%", "0%"]);
   const starsOpacity = useTransform(scrollYProgress, [0, 1], ["100%", "30%"]);
-  const planetOpacity = useTransform(scrollYProgress, [0, 1], ["80%", "0%"]);
+  // const planetOpacity = useTransform(scrollYProgress, [0, 1], ["80%", "0%"]);
   //   const childrenOpacity = useTransform(scrollYProgress, [0, 1], ["95%", "0%"]);
 
   return (
     <div
       ref={ref}
-      className="relative h-full max-w-full overflow-hidden
-        bg-gradient-to-b from-slate-950 to-black transition-all"
+      className="relative flex h-full max-w-full
+        flex-col justify-center overflow-hidden bg-gradient-to-b from-slate-950 to-black transition-all"
     >
-      <motion.div
+      {/* <motion.div
         style={{ y: yBg, opacity: planetOpacity }}
-        className="bg-planets absolute top-0 hidden h-full w-screen bg-cover bg-bottom lg:block"
-      />
+        className="absolute top-0 hidden h-full w-screen bg-planets bg-cover bg-bottom lg:block"
+      /> */}
       <motion.div
         style={{ x: yBg, opacity: starsOpacity }}
-        className="bg-stars absolute top-0 h-full w-screen bg-cover bg-bottom"
+        className="absolute top-0 h-full w-screen bg-stars bg-cover bg-bottom"
       />
-      <motion.div
+      {/* <motion.div
         style={{ opacity: mountainOpacity }}
-        className="bg-mountains absolute top-0 z-20 h-full w-screen bg-cover bg-bottom "
-      />
+        className="absolute top-0 z-20 h-full w-screen bg-mountains bg-cover bg-bottom "
+      /> */}
       <motion.div
         className="relative z-50 "
         // style={{ opacity: childrenOpacity }}

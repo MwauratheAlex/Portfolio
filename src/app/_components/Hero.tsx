@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <Parallax>
-      <div className="mt-24 grow align-middle">
+      <div className="grow align-middle">
         <Container>
           <div
             className={`
@@ -24,25 +24,15 @@ const Hero = () => {
             gap-3 rounded-3xl bg-black bg-opacity-90 px-6 py-8 text-center md:gap-6 lg:px-10`}
           >
             <div className="flex flex-col gap-3 lg:gap-6">
-              <h1 className="text-2xl text-blue-200 opacity-90  lg:text-5xl">
+              {/* <h1 className="text-2xl text-blue-200 opacity-90  lg:text-5xl">
                 Mwaura Mbugua
-              </h1>
-              <h2
-                className="text-3xl font-bold lg:text-6xl"
-                style={{
-                  background:
-                    "linear-gradient(174deg, rgba(155,188,195,1) 22%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%)",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                {`Building `}
+              </h1> */}
+              <h2 className="text-3xl font-bold text-blue-200 lg:text-6xl">
+                Building
                 <TypeAnimation
                   sequence={[
-                    // Same substring at the start will only be typed out once, initially
                     "Beautiful",
-                    2000, // wait 1s before replacing "Mice" with "Hamsters"
+                    2000,
                     "Elegant",
                     2000,
                     "Modern",
@@ -50,11 +40,11 @@ const Hero = () => {
                   ]}
                   wrapper="span"
                   speed={10}
-                  style={{ display: "inline-block" }}
-                  className=" text-blue-400"
+                  style={{ display: "block" }}
+                  className=" my-4 text-blue-400"
                   repeat={Infinity}
                 />
-                stuff <br /> for the web
+                stuff for the web
               </h2>
             </div>
 

@@ -27,7 +27,7 @@ const Contact = () => {
     createMessage.mutate(data);
   };
   return (
-    <section className="w-screen  lg:py-8" id="contact">
+    <section className="lg:py-8" id="contact">
       <Container>
         <div className=" rounded-lg border px-8 py-6 lg:grid lg:grid-cols-2 lg:gap-4 lg:py-16">
           <div className="flex flex-col justify-start">
