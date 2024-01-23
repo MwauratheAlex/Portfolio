@@ -15,10 +15,14 @@ type ProjectCardProps = {
     image_url: string | null;
     git_url: string | null;
     demo_url: string | null;
+    projectsToTags: object[];
   };
 };
 
 const ProjectCard = (props: ProjectCardProps) => {
+  // (props.project.projectsToTags as { tag: { id: string; name: string } }[]).map(
+  //   (item) => console.log(item.tag.id, item.tag.name),
+  // );
   return (
     <section className="my-10 flex overflow-hidden rounded-lg border">
       <Wrapper>
@@ -38,6 +42,20 @@ const ProjectCard = (props: ProjectCardProps) => {
                 {props.project.title}
               </h1>
               <p className="text-slate-100">{props.project.description}</p>
+            </div>
+            <div>
+              {(
+                props.project.projectsToTags as {
+                  tag: { id: string; name: string };
+                }[]
+              ).map(({ tag }) => (
+                <span
+                  key={tag.id}
+                  className="bg-slate-850  inline-block rounded-full px-3 py-1 text-sm font-semibold text-green-700"
+                >
+                  {`<${tag.name}/>`}
+                </span>
+              ))}
             </div>
             <div className="flex gap-2 md:gap-5">
               <Button

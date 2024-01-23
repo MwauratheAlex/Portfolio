@@ -14,6 +14,7 @@ type Project = {
   image_url: string | null;
   git_url: string | null;
   demo_url: string | null;
+  projectsToTags: object[];
 };
 
 const Projects = (props: { projects: Project[] }) => {

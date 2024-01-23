@@ -68,13 +68,13 @@ const About = () => {
             <CarouselComponent items={about} />
           </div>
         </div>
-        <div className="mt-4 rounded-lg border text-center">
+        {/* <div className="mt-4 rounded-lg border text-center">
           <h1 className=" text-2xl font-semibold">Accomplishments</h1>
 
           <div className="px-8 py-8">
             <CarouselComponent items={accomplishments} />
           </div>
-        </div>
+        </div> */}
       </Container>
     </section>
   );
@@ -147,6 +147,7 @@ const Footer = () => {
 
 export default async function Home() {
   const projects = await api.project.getAll.query();
+  // projects.map((project) => console.log(project.projectsToTags));
   return (
     <main>
       <section className="flex h-screen flex-col">
