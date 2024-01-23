@@ -32,10 +32,12 @@ const ProjectCard = (props: ProjectCardProps) => {
               alt="project"
             />
           </div>
-          <div className="my-auto flex h-fit flex-col gap-4 bg-slate-900 px-4  py-8 lg:w-2/4 lg:px-8">
-            <div className="flex flex-col gap-3">
-              <h1 className="text-4xl font-bold">{props.project.title}</h1>
-              <p className="">{props.project.description}</p>
+          <div className="my-auto flex h-fit flex-col gap-4 bg-slate-900 px-4 py-8  hover:h-full lg:w-2/4 lg:px-8">
+            <div className="flex flex-col gap-3 ">
+              <h1 className="text-4xl font-bold text-slate-300">
+                {props.project.title}
+              </h1>
+              <p className="text-slate-100">{props.project.description}</p>
             </div>
             <div className="flex gap-2 md:gap-5">
               <Button

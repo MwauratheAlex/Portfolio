@@ -34,14 +34,17 @@ const Contact = () => {
             <SectionHeading title={`Let's talk`} />
             <div className="mt-6 flex h-full flex-col  items-center gap-3  lg:mt-8 lg:gap-8">
               <div className="flex w-min gap-3 lg:gap-4">
-                <AtSign className="h-5 w-5" />
+                <AtSign className="h-5 w-5 lg:h-6 lg:w-6" />
                 <p>mwaurambugua12@mail.com</p>
               </div>
               <div className="flex gap-3 lg:gap-4">
-                <Phone className="h-5 w-5" />
+                <Phone className="h-5 w-5 lg:h-6 lg:w-6" />
                 <p>+254 713 958 070</p>
               </div>
-              <SocialMedia className="flex w-max gap-2 lg:gap-8 lg:border" />
+              <SocialMedia
+                className="flex w-max gap-2 lg:gap-4"
+                iconSize={24}
+              />
             </div>
           </div>
           <div className=" mt-3">

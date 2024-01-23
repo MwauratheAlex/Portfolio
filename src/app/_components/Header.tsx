@@ -110,24 +110,27 @@ const SideBar = (props: { routes: { href: string; label: string }[] }) => {
   );
 };
 
-export const SocialMedia = (props: { className?: string }) => {
+export const SocialMedia = (props: {
+  className?: string;
+  iconSize?: number;
+}) => {
   return (
     <div className={`${props.className ?? ""} md:flex`}>
       <Button asChild variant="ghost" size="icon" aria-label="Github">
         <Link href="">
-          <FaGithub />
+          <FaGithub size={props.iconSize} />
           <span className="sr-only">XTwitter</span>
         </Link>
       </Button>
       <Button asChild variant="ghost" size="icon" aria-label="LinkedIn">
         <Link href="">
-          <FaLinkedin className="bg-red" />
+          <FaLinkedin size={props.iconSize} />
           <span className="sr-only">XTwitter</span>
         </Link>
       </Button>
       <Button asChild variant="ghost" size="icon" aria-label="XTwitter">
         <Link href="">
-          <FaXTwitter />
+          <FaXTwitter size={props.iconSize} />
           <span className="sr-only">XTwitter</span>
         </Link>
       </Button>
