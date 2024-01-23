@@ -37,8 +37,9 @@ const Projects = (props: { projects: Project[] }) => {
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
                 transition={{ duration: 0.3, delay: index * 1 }}
+                key={project.id}
               >
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard project={project} />
               </motion.div>
             ))}
           </div>
