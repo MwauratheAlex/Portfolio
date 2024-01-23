@@ -36,7 +36,7 @@ const Projects = (props: { projects: Project[] }) => {
                 variants={cardVariants}
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
-                transition={{ duration: 0.3, delay: index * 1 }}
+                transition={{ duration: 0.3, delay: index * 0.5 }}
                 key={project.id}
               >
                 <ProjectCard project={project} />

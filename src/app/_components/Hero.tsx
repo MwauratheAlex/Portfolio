@@ -4,6 +4,7 @@ import Parallax from "./animations/Parallax";
 import { Button } from "./ui/button";
 import Container from "./ui/container";
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const stacks = [
@@ -16,12 +17,15 @@ const Hero = () => {
     <Parallax>
       <div className="grow align-middle">
         <Container>
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, y: 200 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className={`
             mx-auto
-            grid w-max 
-            max-w-full place-items-center justify-center
-            gap-3 rounded-3xl bg-black bg-opacity-90 px-6 py-8 text-center md:gap-6 lg:px-10`}
+            w-max max-w-full 
+            place-items-center justify-center gap-3
+            rounded-3xl bg-black bg-opacity-90 px-6 py-8 text-center md:gap-6 lg:px-10`}
           >
             <div className="flex flex-col gap-3 lg:gap-6">
               {/* <h1 className="text-2xl text-blue-200 opacity-90  lg:text-5xl">
@@ -48,7 +52,7 @@ const Hero = () => {
               </h2>
             </div>
 
-            <div className="flex">
+            <div className="flex justify-center">
               {stacks.map((stack, idx) => (
                 <Stack key={idx} name={stack.name} />
               ))}
@@ -58,7 +62,7 @@ const Hero = () => {
               size="lg"
               className="mt-2 rounded-md border-red-500 py-6 text-xl font-medium"
             >{`Let's talk`}</Button>
-          </div>
+          </motion.div>
         </Container>
       </div>
     </Parallax>
